@@ -18,13 +18,16 @@ class ComController extends BaseController
     {
 
         C(setting());
-        if (!C("COOKIE_SALT")) {
+        if (!C("COOKIE_SALT"))
+        {
             $this->error('请配置COOKIE_SALT信息');
         }
+
         /**
          * 不需要登录控制器
          */
-        if (in_array(CONTROLLER_NAME, array("Login"))) {
+        if (in_array(CONTROLLER_NAME, array("Login")))
+        {
             return true;
         }
         //检测是否登录
@@ -104,6 +107,10 @@ class ComController extends BaseController
         return $tree;
     }
 
+    /**
+     * 检查是否登录
+     * @return bool
+     */
     public function check_login(){
         session_start();
         $flag = false;

@@ -3,28 +3,34 @@
  * 作    者：niushiyao
  * 日    期：2017-12-09
  * 功能说明：自定义变量
- *
  **/
 
 namespace Admin\Controller;
 
 class VariableController extends ComController
 {
-
+    /**
+     * 自定义变量列表
+     */
     public function index()
     {
-
         $vars = M('setting')->where('type=1')->select();
         $this->assign('vars', $vars);
         $this->display();
     }
 
+    /**
+     * 添加自定义内容
+     */
     public function add()
     {
-
         $this->display('form');
     }
 
+    /**
+     * 编辑自定义内容
+     * @param null $k
+     */
     public function edit($k = null)
     {
 
@@ -36,6 +42,9 @@ class VariableController extends ComController
         $this->display('form');
     }
 
+    /**
+     * 删除自定义内容
+     */
     public function del()
     {
 
@@ -43,6 +52,10 @@ class VariableController extends ComController
         if ($k <> '') {
             if (M('setting')->where("type=1 and k='{$k}'")->delete()) {
                 addlog('删除自定义变量，ID：' . $k);
+
+                //更新变量缓存
+                setting('all',false);
+
                 $this->success('恭喜，删除成功！');
             } else {
                 $this->error('参数错误！');
@@ -52,9 +65,11 @@ class VariableController extends ComController
         }
     }
 
+    /**
+     * 更新自定义内容
+     */
     public function update()
     {
-
         $data['k'] = I('post.k');
         $varname = I('post.varname');
         if ($data['k'] == '') {
@@ -73,6 +88,8 @@ class VariableController extends ComController
             M('setting')->data($data)->where("k='{$varname}'")->save();
             addlog('新增自定义变量：' . $data['k']);
         }
+        //更新变量缓存
+        setting('all',false);
 
         $this->success('恭喜，操作成功！', U('index'));
     }

@@ -21,10 +21,16 @@ class LoginController extends ComController
         $this->display();
     }
 
+    /**
+     * 登录方法
+     * @author niushiyao
+     * @Date   2017-12-09
+     */
     public function login()
     {
         $verify = isset($_POST['verify']) ? trim($_POST['verify']) : '';
-        if (!$this->check_verify($verify, 'login')) {
+        if (!$this->check_verify($verify, 'login'))
+        {
             $this->error('验证码错误！', U("login/index"));
         }
 
@@ -63,20 +69,32 @@ class LoginController extends ComController
         }
     }
 
+    /**
+     * 检查验证码
+     * @param $code
+     * @param string $id
+     * @return bool
+     */
     function check_verify($code, $id = '')
     {
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
     }
 
+    /**
+     * 生成验证码
+     * @author niushiyao
+     * @date   2017-12-09
+     */
     public function verify()
     {
         $config = array(
-            'fontSize' => 14, // 验证码字体大小
+            'fontSize' => 16, // 验证码字体大小
             'length' => 4, // 验证码位数
             'useNoise' => false, // 关闭验证码杂点
             'imageW' => 100,
             'imageH' => 30,
+            'useCurve' => false,
         );
         $verify = new \Think\Verify($config);
         $verify->entry('login');

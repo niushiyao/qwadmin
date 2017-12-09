@@ -20,7 +20,7 @@ function addlog($log, $name = false)
     } else {
         $data['name'] = $name;
     }
-    $data['t'] = time();
+    $data['create_time'] = time();
     $data['ip'] = $_SERVER["REMOTE_ADDR"];
     $data['log'] = $log;
     $Model->data($data)->add();
@@ -28,9 +28,7 @@ function addlog($log, $name = false)
 
 
 /**
- *
  * 获取用户信息
- *
  **/
 function member($uid, $field = false)
 {

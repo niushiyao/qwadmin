@@ -13,6 +13,6 @@ class BaseController extends Controller
 {
     public function _initialize()
     {
-        C(setting());
+        //C(setting());
     }
 }

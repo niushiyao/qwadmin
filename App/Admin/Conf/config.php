@@ -1,6 +1,6 @@
 <?php
 return array(
-    'UPDATE_URL' => 'http://update.qd.qiawei.com/',
-    'NEWS_URL' => 'http://qwadmin.qiawei.com/api/news/',
-    'Version' => '1.1'
+    'WEB_ARR' => array(
+        'ADMIN_WEBSITE_NAME' => '网站后台管理'
+    ),
 );

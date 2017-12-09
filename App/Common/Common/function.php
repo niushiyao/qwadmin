@@ -28,13 +28,17 @@ function BatchImage($callBack = "image", $width = 100, $height = 100, $image = "
  * @param  string $k      可选，配置名称
  * @return array          用户数据
 */
-function setting($k = 'all')
+function setting($k = 'all',$is_cache = true)
 {
-    $cache = S($k);
-    //如果缓存不为空直接返回
-    if (null != $cache) {
-        return $cache;
+    if($is_cache)
+    {
+        $cache = S($k);
+        //如果缓存不为空直接返回
+        if (null != $cache) {
+            return $cache;
+        }
     }
+
     $data = '';
     $setting = M('setting');
     //判断是否查询全部设置项
@@ -52,7 +56,7 @@ function setting($k = 'all')
     }
     //建立缓存
     if ($data) {
-        S($k, $data);
+        S($k, $data, 3600);
     }
     return $data;
 }
