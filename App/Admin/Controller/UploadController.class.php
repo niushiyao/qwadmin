@@ -3,7 +3,6 @@
  * 作    者：niushiyao
  * 日    期：2017-12-09
  * 功能说明：文件上传控制器。
- *
  **/
 
 namespace Admin\Controller;
@@ -17,6 +16,9 @@ class UploadController extends ComController
 
     }
 
+    /**
+     * 上传单个文件
+     */
     public function uploadpic()
     {
         $Img = I('Img');
@@ -72,8 +74,11 @@ class UploadController extends ComController
             'savePath' => 'attached/'.date('Y')."/".date('m')."/",
             'subName'  =>  array('date', 'd'),
         ));
+
         $info = $upload->upload($files);
-        if(!$info) {// 上传错误提示错误信息
+        if(!$info)
+        {
+            // 上传错误提示错误信息
             $error = $upload->getError();
             echo "<script>alert('{$error}')</script>";
         }else{// 上传成功
@@ -85,6 +90,9 @@ class UploadController extends ComController
         }
     }
 
+    /**
+     * 批量上传图片
+     */
     public function batchpic()
     {
         $ImgStr = I('Img');

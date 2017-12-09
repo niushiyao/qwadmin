@@ -5,7 +5,13 @@
  * 功能说明：模块公共文件。
  **/
 
-
+/**
+ * 上传单个图片
+ * @param string $callBack
+ * @param int $width
+ * @param int $height
+ * @param string $image
+ */
 function UpImage($callBack = "image", $width = 100, $height = 100, $image = "")
 {
 
@@ -14,6 +20,13 @@ function UpImage($callBack = "image", $width = 100, $height = 100, $image = "")
          <input type="hidden" ' . 'value = "' . $image . '"' . 'name="' . $callBack . '" id="' . $callBack . '">';
 }
 
+/**
+ * 批量上传图片
+ * @param string $callBack
+ * @param int $width
+ * @param int $height
+ * @param string $image
+ */
 function BatchImage($callBack = "image", $width = 100, $height = 100, $image = "")
 {
     
@@ -143,8 +156,6 @@ function category_get_sons($sid, &$array = array())
  * 获取文章url地址
  * url结构：ttp://wwww.qwadmin.com/分类/子分类/子分类/id.html
  * 使用方法：模板中{:articleUrl(array('aid'=>$val['aid']))}
- *
- *
  * @param $data
  * @return $string
  */

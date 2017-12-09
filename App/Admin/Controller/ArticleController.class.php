@@ -11,10 +11,11 @@ use Vendor\Tree;
 
 class ArticleController extends ComController
 {
-
+    /**
+     * 新增文章模板
+     */
     public function add()
     {
-
         $category = M('category')->field('id,pid,name')->order('o asc')->select();
         $tree = new Tree($category);
         $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
@@ -23,10 +24,13 @@ class ArticleController extends ComController
         $this->display('form');
     }
 
+    /**
+     * 文章列表
+     * @param int $sid
+     * @param int $p
+     */
     public function index($sid = 0, $p = 1)
     {
-
-
         $p = intval($p) > 0 ? $p : 1;
 
         $article = M('article');
@@ -69,6 +73,9 @@ class ArticleController extends ComController
         $this->display();
     }
 
+    /**
+     * 删除文章
+     */
     public function del()
     {
 
@@ -92,9 +99,12 @@ class ArticleController extends ComController
 
     }
 
+    /**
+     * 编辑文章
+     * @param $aid
+     */
     public function edit($aid)
     {
-
         $aid = intval($aid);
         $article = M('article')->where('aid=' . $aid)->find();
         if ($article) {
@@ -112,6 +122,10 @@ class ArticleController extends ComController
         $this->display('form');
     }
 
+    /**
+     * 编辑或新增文章
+     * @param int $aid
+     */
     public function update($aid = 0)
     {
 
