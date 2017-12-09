@@ -2,7 +2,6 @@
 /**
  * 作    者：niushiyao
  * 日    期：2017-12-09
- *
  * 功能说明：前台控制器演示。
  *
  **/
@@ -14,7 +13,6 @@ class IndexController extends ComController
 {
     public function index()
     {
-
         $this->display();
     }
     /*
