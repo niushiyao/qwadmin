@@ -6,7 +6,7 @@
  *
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 use Think\Upload;
 

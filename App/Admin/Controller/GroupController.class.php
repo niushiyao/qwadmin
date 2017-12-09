@@ -2,12 +2,10 @@
 /**
  * 作    者：niushiyao
  * 日    期：2017-12-09
- *
  * 功能说明：用户控制器。
- *
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 class GroupController extends ComController
 {

@@ -2,12 +2,10 @@
 /**
  * 作    者：niushiyao
  * 日    期：2017-12-09
- *
  * 功能说明：用户反馈。
- *
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 class FacebookController extends ComController
 {

@@ -5,7 +5,7 @@
  * 功能说明：个人中心控制器。
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 class PersonalController extends ComController
 {

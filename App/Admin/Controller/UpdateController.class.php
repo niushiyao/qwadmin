@@ -6,7 +6,7 @@
  *
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 use Vendor\HttpDownload;
 use Vendor\Zip;

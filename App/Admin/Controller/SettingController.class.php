@@ -5,7 +5,7 @@
  * 功能说明：网站设置控制器。
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 class SettingController extends ComController
 {

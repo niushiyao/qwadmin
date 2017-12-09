@@ -1,15 +1,11 @@
 <?php
 /**
- *
- * ��Ȩ���У�ǡά����<qwadmin.qiawei.com>
- * ��    �ߣ�����<hanchuan@qiawei.com>
- * ��    �ڣ�2016-01-17
- * ��    ����1.0.0
- * ����˵������̨�ǳ���������
- *
+ * 作    者：niushiyao
+ * 日    期：2017-12-09
+ * 功能说明：后台退出登录控制器。
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 class LogoutController extends ComController
 {

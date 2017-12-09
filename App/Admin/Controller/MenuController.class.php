@@ -6,7 +6,7 @@
  *
  **/
 
-namespace Qwadmin\Controller;
+namespace Admin\Controller;
 
 class MenuController extends ComController
 {
